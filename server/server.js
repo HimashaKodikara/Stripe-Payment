@@ -6,8 +6,10 @@ const express =require("express")
 const app= express()
 
 app.use(express.json())
+app.use(express.static("client"))
 
-const stripe = require('stripe')(process.env.STRIPE_API_KEY);
+const stripe = require('stripe')("sk_test_51QJef7RwP0CS6vlp1xPmO3Nre0XQtp4VMvgKfYvMWeipbCfvV38ECuNVUOTiOHPikUYDhFSWh1gkhhlYE8LfLUEN00x5umMnMs"
+);
 
 const storeItems = new Map([
     [1,{priceInCents:10000,name:'Learn React Today'}],
